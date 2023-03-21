@@ -12,4 +12,6 @@ EXPOSE 6010
 ARG DXNUGETKEY
 RUN dotnet nuget add source https://nuget.devexpress.com/api -n DXFeed --store-password-in-clear-text -u DevExpress -p $DXNUGETKEY
 
-CMD /src/wait-for-it.sh -t 0 sql:1433 -- /src/start-webapi.sh
+# There's no real dependency here, but we want to wait for the "blazor" service to start up first
+# and complete the initialization of the database.
+CMD /src/wait-for-it.sh -t 0 sql:1433 -- /src/wait-for-it.sh -t 0 blazor:5010 -- /src/start-webapi.sh
