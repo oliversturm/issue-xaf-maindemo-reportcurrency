@@ -32,6 +32,7 @@ services:
         DXNUGETKEY: ${DXNUGETKEY}
     depends_on:
       - sql
+      - blazor
     environment:
       DOTNET_WATCH_RESTART_ON_RUDE_EDIT: 1
     ports:
