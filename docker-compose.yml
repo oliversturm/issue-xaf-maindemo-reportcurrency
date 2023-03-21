@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  sql:
+    image: mcr.microsoft.com/azure-sql-edge
+    environment:
+      ACCEPT_EULA: 1
+      MSSQL_SA_PASSWORD: sApwd*123
+    cap_add:
+      - SYS_PTRACE
+    volumes:
+      - sql-data:/var/opt/mssql
+
+  blazor:
+    build:
+      context: ./
+      dockerfile: ./Dockerfile.blazor
+      args:
+        DXNUGETKEY: ${DXNUGETKEY}
+    depends_on:
+      - sql
+    environment:
+      DOTNET_WATCH_RESTART_ON_RUDE_EDIT: 1
+    ports:
+      - '5010:5010'
+
+  webapi:
+    build:
+      context: ./
+      dockerfile: ./Dockerfile.webapi
+      args:
+        DXNUGETKEY: ${DXNUGETKEY}
+    depends_on:
+      - sql
+    environment:
+      DOTNET_WATCH_RESTART_ON_RUDE_EDIT: 1
+    ports:
+      - '6010:6010'
+
+volumes:
+  sql-data:

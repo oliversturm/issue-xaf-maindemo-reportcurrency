@@ -1,0 +1,15 @@
+FROM mcr.microsoft.com/dotnet/sdk:7.0
+
+RUN apt-get update
+RUN apt-get install -y libc6 libicu-dev libfontconfig1
+
+WORKDIR /src
+
+COPY . ./
+
+EXPOSE 5010
+
+ARG DXNUGETKEY
+RUN dotnet nuget add source https://nuget.devexpress.com/api -n DXFeed --store-password-in-clear-text -u DevExpress -p $DXNUGETKEY
+
+CMD /src/wait-for-it.sh -t 0 sql:1433 -- /src/start-blazor.sh

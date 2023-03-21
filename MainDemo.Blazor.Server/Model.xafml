@@ -1,0 +1,238 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application PreferredLanguage="(User language)">
+	<BOModel>
+		<Class Name="MainDemo.Module.BusinessObjects.Note">
+			<OwnMembers>
+				<Member Name="Text" PropertyEditorType="DevExpress.ExpressApp.Office.Blazor.Editors.RichTextPropertyEditor" DocumentStorageFormat="HTML" />
+			</OwnMembers>
+		</Class>
+	</BOModel>
+  <NavigationItems>
+    <Items>
+      <Item Id="Default">
+        <Items>
+          <Item Id="Employee_ListView" Index="0" />
+          <Item Id="DemoTask_ListView" Index="1" />
+          <Item Id="Department_ListView" Index="2" />
+          <Item Id="Event_ListView" Index="3" Removed="True" />
+          <Item Id="Note" Index="4" />
+          <Item Id="MyDetails" Index="5" />
+          <Item Id="Paycheck_ListView" Index="6" />
+          <Item Id="PermissionPolicyRole_ListView" Index="7" />
+          <Item Id="ApplicationUser_ListView" Index="8" />
+          <Item Id="Resume_ListView" Index="9" />
+        </Items>
+      </Item>
+      <Item Id="Reports">
+        <Items>
+          <Item Id="Analysis_ListView" Removed="True" />
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
+  <Views DefaultListEditor="DevExpress.ExpressApp.Blazor.Editors.DxGridListEditor">
+		<DetailView Id="Employee_DetailView">
+			<Items>
+				<PropertyEditor Id="Photo" ImageEditorFixedHeight="190" />
+				<PropertyEditor Id="Department" DisplayFormat="{0:Title} ({0:Office}, {0:Location})" />
+				<PropertyEditor Id="Manager" DisplayFormat="{0:FullName} ({0:Email})" />
+			</Items>
+			<Layout>
+				<LayoutGroup Id="Main">
+					<LayoutGroup Id="SimpleEditors">
+						<LayoutGroup Id="Person">
+							<LayoutGroup Id="Person_col1" Removed="True" />
+							<LayoutGroup Id="Person_col2" Removed="True">
+								<LayoutItem Id="Photo" ShowCaption="False" ViewItem="Photo" />
+							</LayoutGroup>
+							<LayoutGroup Id="Person_inner" Caption="Person_inner" Direction="Horizontal" IsNewNode="True">
+								<LayoutGroup Id="Person_col1" Index="0" Direction="Horizontal" RelativeSize="85" ShowCaption="False" IsNewNode="True">
+									<LayoutGroup Id="Person_col1a" ShowCaption="False" Index="0" RelativeSize="50" IsNewNode="True">
+										<LayoutItem Id="FirstName" ViewItem="FirstName" Index="0" RelativeSize="28.571428571428573" IsNewNode="True" />
+										<LayoutItem Id="MiddleName" ViewItem="MiddleName" Index="1" RelativeSize="21.428571428571427" IsNewNode="True" />
+										<LayoutItem Id="LastName" ViewItem="LastName" Index="2" RelativeSize="21.428571428571427" IsNewNode="True" />
+										<LayoutItem Id="FullName" ViewItem="FullName" Index="3" RelativeSize="21.428571428571427" IsNewNode="True" />
+									</LayoutGroup>
+									<LayoutGroup Id="Person_col1b" ShowCaption="False" Index="1" RelativeSize="50" IsNewNode="True">
+										<LayoutItem Id="TitleOfCourtesy" ViewItem="TitleOfCourtesy" Index="0" RelativeSize="28.571428571428573" IsNewNode="True" />
+										<LayoutItem Id="Email" ViewItem="Email" Index="1" RelativeSize="21.428571428571427" IsNewNode="True" />
+										<LayoutItem Id="Birthday" ViewItem="Birthday" Index="2" RelativeSize="21.428571428571427" IsNewNode="True" />
+										<LayoutItem Id="Address1" ViewItem="Address1" Index="3" RelativeSize="28.571428571428573" IsNewNode="True" />
+									</LayoutGroup>
+								</LayoutGroup>
+								<LayoutGroup Id="Person_col2" Index="1" RelativeSize="15" ShowCaption="False" IsNewNode="True">
+									<LayoutItem Id="Photo" ViewItem="Photo" ShowCaption="False" Index="0" RelativeSize="100" IsNewNode="True" />
+								</LayoutGroup>
+							</LayoutGroup>
+						</LayoutGroup>
+					</LayoutGroup>
+				</LayoutGroup>
+			</Layout>
+		</DetailView>
+		<ListView Id="Employee_LookupListView" DataAccessMode="Client" />
+		<ListView Id="Employee_ListView">
+			<Columns>
+				<ColumnInfo Id="Photo" Index="-1" ImageEditorCustomHeight="70" SortIndex="-1" SortOrder="None" />
+				<ColumnInfo Id="TitleOfCourtesy" Index="0" MinWidth="30" />
+				<ColumnInfo Id="FirstName" MinWidth="80" />
+				<ColumnInfo Id="LastName" Width="-1" MinWidth="80" />
+				<ColumnInfo Id="Email" MinWidth="150" />
+				<ColumnInfo Id="Department" MinWidth="100" />
+				<ColumnInfo Id="Position" MinWidth="100" />
+				<ColumnInfo Id="Birthday" MinWidth="90" />
+			</Columns>
+		</ListView><ListView Id="Employee_ListView_AllColumns">
+			<Columns>
+				<ColumnInfo Id="Photo" Index="-1" ImageEditorCustomHeight="70" SortIndex="-1" SortOrder="None" />
+				<ColumnInfo Id="TitleOfCourtesy" Index="0" MinWidth="30" />
+				<ColumnInfo Id="FirstName" MinWidth="80" />
+				<ColumnInfo Id="LastName" Width="-1" MinWidth="80" />
+				<ColumnInfo Id="Email" MinWidth="150" />
+				<ColumnInfo Id="Department" MinWidth="100" />
+				<ColumnInfo Id="Position" MinWidth="100" />
+				<ColumnInfo Id="Birthday" MinWidth="90" />
+				<ColumnInfo Id="Address1" MinWidth="200" />
+			</Columns>
+		</ListView>
+		<ListView Id="Employee_Tasks_ListView">
+			<Columns>
+				<ColumnInfo Id="Subject" MinWidth="150" />
+				<ColumnInfo Id="Status" MinWidth="100" />
+				<ColumnInfo Id="AssignedTo" MinWidth="200" />
+				<ColumnInfo Id="EstimatedWorkHours" MinWidth="80" />
+				<ColumnInfo Id="ActualWorkHours" MinWidth="80" />
+				<ColumnInfo Id="Priority" MinWidth="80" />
+			</Columns>
+		</ListView>
+		<ListView Id="Party_PhoneNumbers_ListView">
+			<Columns>
+				<ColumnInfo Id="Number" MinWidth="120" />
+				<ColumnInfo Id="PhoneType" MinWidth="80" />
+			</Columns>
+		</ListView>
+		<ListView Id="Resume_Portfolio_ListView">
+			<Columns>
+				<ColumnInfo Id="File" SortIndex="-1" SortOrder="None" />
+			</Columns>
+		</ListView>
+		<DetailView Id="Department_DetailView">
+			<Items>
+				<PropertyEditor Id="Employees" />
+				<PropertyEditor Id="Positions" LookupEditorMode="AllItems" />
+			</Items>
+		</DetailView>
+    <ListView Id="Department_ListView">
+      <Columns>
+				<ColumnInfo Id="Title" MinWidth="150" />
+				<ColumnInfo Id="Location" MinWidth="80" />
+				<ColumnInfo Id="Office" MinWidth="60" />
+        <ColumnInfo Id="Description" Removed="True" />
+        <ColumnInfo Id="NumberOfEmployees" Removed="True" />
+				<ColumnInfo Id="DepartmentHead" MinWidth="80" />
+      </Columns>
+    </ListView>
+		<ListView Id="Department_Employees_ListView">
+			<Columns>
+				<ColumnInfo Id="FullName" MinWidth="80" />
+				<ColumnInfo Id="Birthday" MinWidth="90" />
+				<ColumnInfo Id="Position" MinWidth="100" />
+				<ColumnInfo Id="Email" MinWidth="200" />
+			</Columns>
+		</ListView>
+		<ListView Id="DemoTask_ListView">
+			<Columns>
+				<ColumnInfo Id="Subject" MinWidth="150" />
+				<ColumnInfo Id="Status" MinWidth="100" />
+				<ColumnInfo Id="AssignedTo" MinWidth="200" />
+				<ColumnInfo Id="StartDate" MinWidth="90" />
+				<ColumnInfo Id="DueDate" MinWidth="90" />
+				<ColumnInfo Id="Priority" MinWidth="80" />
+			</Columns>
+		</ListView>
+		<ListView Id="DemoTask_Employees_ListView">
+			<Columns>
+				<ColumnInfo Id="FullName" MinWidth="80" />
+				<ColumnInfo Id="Department" MinWidth="100" />
+				<ColumnInfo Id="Position" MinWidth="100" />
+				<ColumnInfo Id="Birthday" MinWidth="90" />
+			</Columns>
+		</ListView>
+		<ListView Id="Note_ListView">
+			<Columns>
+				<ColumnInfo Id="Text" MinWidth="200" />
+				<ColumnInfo Id="Author" MinWidth="80" />
+				<ColumnInfo Id="DateTime" MinWidth="90" />
+			</Columns>
+		</ListView>
+    <ListView Id="Paycheck_ListView">
+			<Columns>
+				<ColumnInfo Id="Employee" MinWidth="90" />
+				<ColumnInfo Id="PayPeriodStart" MinWidth="90" />
+				<ColumnInfo Id="PayPeriodEnd" MinWidth="90" />
+				<ColumnInfo Id="PaymentDate" MinWidth="90" />
+				<ColumnInfo Id="PayRate" MinWidth="80" />
+				<ColumnInfo Id="Hours" MinWidth="60" />
+				<ColumnInfo Id="OvertimePayRate" MinWidth="80" />
+				<ColumnInfo Id="OvertimeHours" MinWidth="60" />
+				<ColumnInfo Id="TaxRate" MinWidth="80" />
+				<ColumnInfo Id="TotalTax" MinWidth="80" />
+				<ColumnInfo Id="GrossPay" MinWidth="80" />
+				<ColumnInfo Id="NetPay" MinWidth="80" />
+			</Columns>
+		</ListView>
+		<ListView Id="Party_LookupListView" DataAccessMode="Client" />
+		<DetailView Id="AuthenticationStandardLogonParameters_DetailView_Demo" DefaultFocusedItem="UserName" CaptionLocation="Top">
+			<Layout>
+				<LayoutGroup Id="Main">
+					<LayoutGroup Id="RootGroup">
+						<LayoutGroup Id="ImageGroup">
+							<LayoutItem Id="LogonImage" Removed="True" />
+						</LayoutGroup>
+						<LayoutGroup Id="EditorsGroup">
+							<LayoutGroup Id="Text">
+								<LayoutItem Id="LogonText" />
+								<LayoutItem Id="WelcomeText" Removed="True" />
+							</LayoutGroup>
+							<LayoutGroup Id="Editors" RelativeSize="7.2">
+								<LayoutItem Id="UserName" Index="0" />
+								<LayoutItem Id="Password" Index="1" />
+							</LayoutGroup>
+							<LayoutGroup Id="PasswordHintGroup">
+								<LayoutItem Id="PasswordHint" />
+							</LayoutGroup>
+						</LayoutGroup>
+					</LayoutGroup>
+				</LayoutGroup>
+			</Layout>
+		</DetailView>
+  		<ListView Id="Department_LookupListView">
+			<Columns>
+				<ColumnInfo Id="Office" PropertyName="Office" Index="1" IsNewNode="True" />
+				<ColumnInfo Id="Location" PropertyName="Location" Index="2" IsNewNode="True" />
+			</Columns>
+		</ListView>
+		<ListView Id="Employee_LookupListView" >
+			<Columns>
+				<ColumnInfo Id="Title" PropertyName="TitleOfCourtesy" Index="0" IsNewNode="True" />
+				<ColumnInfo Id="FullName" Index="1" />
+				<ColumnInfo Id="Email" PropertyName="Email" Index="2" IsNewNode="True" />
+			</Columns>
+		</ListView>
+    <ListView Id="Location_ListView">
+			<Columns>
+				<ColumnInfo Id="Title" Index="0" MinWidth="130" />
+				<ColumnInfo Id="Latitude" Index="1" MinWidth="65" />
+				<ColumnInfo Id="Longitude" Index="2" MinWidth="65" />
+			</Columns>
+		</ListView>
+  <ListView Id="Resume_ListView">
+		<Columns>
+			<ColumnInfo Id="Employee" MinWidth="80" />
+			<ColumnInfo Id="File" MinWidth="120" />
+			<ColumnInfo Id="Employee.Email" MinWidth="100" />
+			<ColumnInfo Id="Employee.Department" MinWidth="100" />
+			<ColumnInfo Id="Employee.Address" MinWidth="200" />
+		</Columns>
+	</ListView>
+	</Views>
+</Application>

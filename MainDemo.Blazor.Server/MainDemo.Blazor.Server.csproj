@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk.Web" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <CheckEolTargetFramework>false</CheckEolTargetFramework>
+    <EnableDefaultItems>false</EnableDefaultItems>
+    <Configurations>Debug;Release;EasyTest</Configurations>
+
+    <AssemblyName>MainDemo.Blazor.Server</AssemblyName>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'EasyTest|AnyCPU' ">
+    <DefineConstants>TRACE;DEBUG;EASYTEST</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="DevExpress.Drawing.Skia" Version="22.2.4" />
+
+    <PackageReference Include="Castle.Core" Version="4.4.1" />
+    <PackageReference Include="Microsoft.AspNetCore.OData" Version="8.0.11" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="3.3.1" />
+    <PackageReference Include="DevExtreme.AspNet.Data" Version="2.8.6" />
+    <PackageReference Include="Logify.Alert.Console" Version="1.0.55" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="6.0.3" />
+    <PackageReference Include="Microsoft.Extensions.DependencyModel" Version="6.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.4.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+    <PackageReference Include="System.Reactive" Version="5.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="6.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.3" />
+    <PackageReference Include="System.CodeDom" Version="5.0.0" />
+    <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
+    <PackageReference Include="System.Drawing.Common" Version="5.0.3" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MainDemo.Module\MainDemo.Module.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DevExpress.ExpressApp.CodeAnalysis" Version="22.2.4" />
+    <PackageReference Include="DevExpress.ExpressApp.WebApi.de" Version="22.2.4" />
+    <PackageReference Include="DevExpress.ExpressApp.AuditTrail.EFCore" Version="22.2.4" />
+    <PackageReference Include="DevExpress.ExpressApp.ViewVariantsModule.de" Version="22.2.4" />
+    <PackageReference Include="DevExpress.ExpressApp.ConditionalAppearance" Version="22.2.4" />
+    <PackageReference Include="DevExpress.ExpressApp.FileAttachment.Blazor" Version="22.2.4" />
+    <PackageReference Include="DevExpress.ExpressApp.Objects" Version="22.2.4" />
+    <PackageReference Include="DevExpress.ExpressApp.Office.Blazor" Version="22.2.4" />
+    <PackageReference Include="DevExpress.ExpressApp.ReportsV2.Blazor.de" Version="22.2.4" />
+    <PackageReference Include="DevExpress.ExpressApp.Validation.Blazor" Version="22.2.4" />
+    <PackageReference Include="DevExpress.ExpressApp.Validation.Blazor.de" Version="22.2.4" />
+    <PackageReference Include="DevExpress.ExpressApp.ViewVariantsModule" Version="22.2.4" />
+    <PackageReference Include="DevExpress.ExpressApp.FileAttachment.Blazor.de" Version="22.2.4" />
+    <PackageReference Include="DevExpress.ExpressApp.AuditTrail.EFCore.de" Version="22.2.4" />
+    <PackageReference Include="DevExpress.ExpressApp.Objects.de" Version="22.2.4" />
+    <PackageReference Include="DevExpress.ExpressApp.ReportsV2.Blazor" Version="22.2.4" />
+    <PackageReference Include="DevExpress.ExpressApp.ConditionalAppearance.de" Version="22.2.4" />
+    <PackageReference Include="DevExpress.ExpressApp.WebApi" Version="22.2.4" />
+    <PackageReference Include="DevExpress.ExpressApp.Office.Blazor.de" Version="22.2.4" />
+
+
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Compile Include="Services\**\*.cs" />
+    <Compile Include="API\CRUD\CustomDataService.cs" />
+    <Compile Include="API\NonPersistent\NonPersistentObjectSpaceCustomizerService.cs" />
+    <Compile Include="API\NonPersistent\NonPersistentObjectStorageService.cs" />
+    <Compile Include="API\Security\AuthenticationController.cs" />
+    <Compile Include="Controllers\DisableActionsController.cs" />
+    <Compile Include="Controllers\LogonParametersViewController.cs" />
+    <Compile Include="Controllers\ReportLocalizationController.cs" />
+    <Compile Include="API\Reports\ReportController.cs" />
+    <Compile Include="CustomTypePropertyEditor.cs" />
+    <Compile Include="MainDemoBlazorApplication.cs" />
+    <Compile Include="BlazorModule.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="API\!!!Feedback\Readme.txt" />
+    <Content Include="API\AuditTrail\Readme.txt" />
+    <Content Include="API\FileAttachments\Readme.txt" />
+    <Content Include="API\Localization\Readme.txt" />
+    <Content Include="API\Reports\Readme.txt" />
+    <Content Include="API\Security\Readme.txt" />
+    <Content Include="Pages\_Host.cshtml" />
+    <Content Include="Properties\launchSettings.json" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="wwwroot\**\*.*" CopyToPublishDirectory="PreserveNewest" />
+    <Content Include="_Imports.razor" />
+    <Content Include="App.razor" />
+    <Content Include="appsettings.Development.json" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="appsettings.json" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="Model.xafml" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+  <ItemGroup>
+
+
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Model_de.xafml">
+      <DependentUpon>Model.xafml</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+</Project>

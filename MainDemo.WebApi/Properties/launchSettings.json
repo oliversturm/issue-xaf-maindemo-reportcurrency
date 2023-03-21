@@ -1,0 +1,14 @@
+﻿{
+  "profiles": {
+    "MainDemo.WebApi": {
+      "commandName": "Project",
+      "dotnetRunMessages": "true",
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "applicationUrl": "http://*:6010",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

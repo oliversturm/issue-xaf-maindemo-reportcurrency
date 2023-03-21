@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?><Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+<CheckEolTargetFramework>false</CheckEolTargetFramework>
+    <EnableDefaultItems>false</EnableDefaultItems>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <Configurations>Debug;Release;EasyTest</Configurations>
+    <AssemblyName>MainDemo.Module</AssemblyName>
+    <RootNamespace>MainDemo.Module</RootNamespace>
+	  <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'EasyTest|AnyCPU' ">
+    <DefineConstants>TRACE;DEBUG;EASYTEST</DefineConstants>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="DevExpress.ExpressApp.CodeAnalysis" Version="22.2.4" />
+    <PackageReference Include="DevExpress.ExpressApp.ConditionalAppearance" Version="22.2.4" />
+    <PackageReference Include="DevExpress.ExpressApp.AuditTrail.EFCore" Version="22.2.4" />
+    <PackageReference Include="DevExpress.ExpressApp.Objects" Version="22.2.4" />
+    <PackageReference Include="DevExpress.ExpressApp.ViewVariantsModule" Version="22.2.4" />
+    <PackageReference Include="DevExpress.ExpressApp.Validation" Version="22.2.4" />
+    <PackageReference Include="DevExpress.ExpressApp.ReportsV2" Version="22.2.4" />
+    <PackageReference Include="DevExpress.ExpressApp.PivotChart" Version="22.2.4" />
+    <PackageReference Include="DevExpress.ExpressApp.Office" Version="22.2.4" />
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BusinessObjects\**\*.cs" />
+    <Compile Include="CodeRules\**\*.cs" />
+    <Compile Include="Controllers\**\*.cs" />
+    <Compile Include="DatabaseUpdate\**\*.cs" />
+    <Compile Include="Properties\**\*.cs" />
+    <Compile Include="Reports\**\*.cs" />
+    <Compile Include="MainDemoModule.cs" />
+    <Compile Include="UseSQLAlternativeInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="BusinessObjects\ReadMe.txt" />
+    <Content Include="Controllers\ReadMe.txt" />
+    <Content Include="DatabaseUpdate\ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controllers\**\*.resx" />
+    <EmbeddedResource Include="DatabaseUpdate\**\*.xml" />
+    <EmbeddedResource Include="DatabaseUpdate\**\*.pdf" />
+    <EmbeddedResource Include="Reports\**\*.resx" />
+    <EmbeddedResource Include="Model.DesignedDiffs.xafml" />
+    <EmbeddedResource Include="Model.DesignedDiffs.Localization.de.xafml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.0" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="5.0.0" />
+    <PackageReference Include="Castle.Core" Version="4.4.1" />    
+    <PackageReference Include="System.Drawing.Common" Version="5.0.3" /> 
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="6.0.3" /> 
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="6.0.3" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
+    <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
+  </ItemGroup>
+</Project> 

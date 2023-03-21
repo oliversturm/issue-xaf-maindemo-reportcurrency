@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "MainDemo.Blazor.Server": {
+      "commandName": "Project",
+      "launchBrowser": false,
+      "applicationUrl": "http://*:5010",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}
