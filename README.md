@@ -43,7 +43,11 @@ DXNUGETKEY=...
 * I modified the SQL connection strings and the listening config, so that the docker containers would work together as intended.
 * ... I believe that was it. Please let me know in case you find any other relevant changes, I can confirm whether I made them on purpose.
 
-## Bonus bug: GDI dependency of demo report "Employee List Report"
+## (WORKAROUND IN PLACE) Bonus bug: GDI dependency of demo report "Employee List Report"
+
+**The two Dockerfiles now install the extra apt package `libgdiplus`, and this resolves the rendering problem described in this section.**
+
+### Old description of the issue following
 
 Try to bring up the preview in the the Blazor app for the "Employee List Report" that is automatically created by the Main Demo. You will see errors, apparently due to some GDI dependency of that report.
 
